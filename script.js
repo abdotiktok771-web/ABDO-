@@ -195,4 +195,117 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDWKtRYhITsFz4i5wu7KgvnVwpt1ebn0xQ",
+  authDomain: "my-web-b12b0.firebaseapp.com",
+  databaseURL: "https://my-web-b12b0-default-rtdb.firebaseio.com",
+  projectId: "my-web-b12b0",
+  storageBucket: "my-web-b12b0.firebasestorage.app",
+  messagingSenderId: "814843679666",
+  appId: "1:814843679666:web:bab54b135f50083357caab"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// ==========================================
+// نظام التقييمات الحقيقي (Firebase Realtime Database)
+// ==========================================
+
+// 1. كود تهيئة Firebase (تأكد إن البيانات دي هي بيانات مشروعك بالضبط)
+const firebaseConfig = {
+    apiKey: "حط_الـ_apiKey_بتاعك_هنا",
+    authDomain: "my-web-b12b0.firebaseapp.com",
+    databaseURL: "https://my-web-b12b0-default-rtdb.firebaseio.com",
+    projectId: "my-web-b12b0",
+    storageBucket: "my-web-b12b0.appspot.com",
+    messagingSenderId: "حط_الـ_messagingSenderId",
+    appId: "حط_الـ_appId"
+};
+
+// تشغيل Firebase في الموقع
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.database();
+const reviewsRef = db.ref('reviews');
+
+const reviewForm = document.getElementById('review-form');
+const reviewsContainer = document.getElementById('reviews-container');
+
+// 2. قراءة التقييمات الحقيقية وعرضها للجميع فوراً
+reviewsRef.on('value', (snapshot) => {
+    if (!reviewsContainer) return;
+    reviewsContainer.innerHTML = '';
+    const data = snapshot.val();
+
+    if (data) {
+        // ترتيب التقييمات من الأحدث للأقدم
+        Object.keys(data).reverse().forEach((key) => {
+            const item = data[key];
+            const stars = '⭐'.repeat(item.rating || 5);
+            
+            const card = document.createElement('div');
+            card.classList.add('review-card');
+            card.innerHTML = `
+                <div class="stars">${stars}</div>
+                <p>"${escapeHtml(item.comment)}"</p>
+                <h4>${escapeHtml(item.name)}</h4>
+                <span>زائر حقيقي ✨</span>
+            `;
+            reviewsContainer.appendChild(card);
+        });
+    } else {
+        reviewsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); grid-column: 1/-1;">لا توجد تقييمات حتى الآن. كن أول من يكتب تقييمه! 🌟</p>';
+    }
+});
+
+// 3. إرسال التقييم الجديد عند إرسال النموذج
+if (reviewForm) {
+    reviewForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'جاري النشر...';
+
+        const name = document.getElementById('reviewer-name').value.trim();
+        const rating = parseInt(document.getElementById('reviewer-rating').value);
+        const comment = document.getElementById('reviewer-comment').value.trim();
+
+        // إرسال البيانات إلى Firebase
+        reviewsRef.push({
+            name: name,
+            rating: rating,
+            comment: comment,
+            timestamp: Date.now()
+        }).then(() => {
+            reviewForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'نشر التقييم للجميع 🚀';
+            alert('تم نشر تقييمك بنجاح وسيطهر لجميع زوار الموقع الآن! 🎉');
+        }).catch((err) => {
+            console.error(err);
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'نشر التقييم للجميع 🚀';
+            alert('حدث خطأ أثناء حفظ التقييم، يرجى المحاولة لاحقاً.');
+        });
+    });
+}
+
+// دالة حماية من النصوص الضارة
+function escapeHtml(text) {
+    if (!text) return '';
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 });

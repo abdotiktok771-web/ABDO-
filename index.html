@@ -138,5 +138,37 @@
 
     <!-- JS السكريبت -->
     <script src="script.js"></script>
+    <!-- قسم التقييمات -->
+<section id="reviews" class="reviews">
+    <h2 class="section-title">آراء <span>العملاء والزوار</span></h2>
+    
+    <!-- المكان الذي تظهر فيه التقييمات -->
+    <div class="reviews-grid" id="reviews-container">
+        <p style="text-align: center; color: var(--text-muted); grid-column: 1/-1;">جاري تحميل التقييمات... ⏳</p>
+    </div>
+
+    <!-- نموذج إضافة تقييم -->
+    <div class="add-review-box">
+        <h3>أضف تقييمك الحقيقي ✍️</h3>
+        <form id="review-form">
+            <input type="text" id="reviewer-name" placeholder="اسمك الكريم" required maxlength="30">
+            
+            <select id="reviewer-rating" required>
+                <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                <option value="3">⭐⭐⭐ (3/5)</option>
+                <option value="2">⭐⭐ (2/5)</option>
+                <option value="1">⭐ (1/5)</option>
+            </select>
+
+            <textarea id="reviewer-comment" placeholder="اكتب رأيك أو تقييمك هنا..." rows="3" required maxlength="300"></textarea>
+            <button type="submit" id="submit-btn" class="btn primary-btn">نشر التقييم للجميع 🚀</button>
+        </form>
+    </div>
+</section>
+
+<!-- استدعاء مكتبات Firebase (تأكد إنه قبل إغلاق </body> وفي آخر الصفحة) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </body>
 </html>

@@ -589,3 +589,272 @@ body.light-mode footer {
         font-size: 1.3rem;
     }
 }
+
+/* ==========================================
+   قسم التقييمات الحقيقي - تصميم عصري 🌟
+   ========================================== */
+
+/* 1. الحاوية الرئيسية للقسم */
+.reviews {
+    padding: 6rem 5% 4rem; /* مسافات داخلية مناسبة */
+    max-width: 1100px;
+    margin: 0 auto; /* توسيط القسم في الصفحة */
+}
+
+/* 2. عنوان القسم (استخدام متغيراتك للألوان) */
+.reviews .section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    color: var(--text-color, #fff);
+}
+
+.reviews .section-title span {
+    color: var(--accent-color, #007bff); /* لون التمييز */
+}
+
+/* 3. شبكة عرض التقييمات (التجاوب تلقائياً) */
+.reviews-grid {
+    display: grid;
+    /* يظبط عدد الأعمدة تلقائياً بناءً على عرض الشاشة */
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 2rem; /* المسافة بين الكروت */
+    margin-bottom: 4rem;
+}
+
+/* 4. تنسيق كارت التقييم الواحد (Professional Card Design) */
+.review-card {
+    background: var(--card-bg, rgba(255, 255, 255, 0.03)); /* خلفية غامقة شفافة */
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* إطار رفيع جداً */
+    text-align: right;
+    transition: all 0.3s ease; /* حركة ناعمة */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+/* تأثير عند تمرير الماوس على الكارت (Hover Effect) */
+.review-card:hover {
+    transform: translateY(-5px); /* يرتفع للأعلى قليلاً */
+    border-color: rgba(var(--accent-color-rgb, 0, 123, 255), 0.3); /* يظهر لون التمييز */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* ظل ناعم */
+}
+
+/* 5. تنسيق النجوم */
+.review-card .stars {
+    color: #ffc107; /* لون ذهبي للنجوم */
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 2px;
+}
+
+/* 6. تنسيق نص الرأي */
+.review-card p {
+    color: var(--text-muted, #ccc);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-style: italic; /* خط مائل للرأي */
+    flex-grow: 1; /* يأخذ المساحة المتاحة */
+}
+
+/* 7. تنسيق اسم صاحب الرأي */
+.review-card h4 {
+    color: var(--text-color, #fff);
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* 8. تنسيق وصف الزائر */
+.review-card span {
+    color: var(--accent-color, #007bff);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* ------------------------------------------
+   نموذج إضافة تقييم (Review Form)
+   ------------------------------------------ */
+
+/* 9. حاوية النموذج */
+.add-review-box {
+    background: var(--card-bg, rgba(255, 255, 255, 0.04));
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.add-review-box h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-color, #fff);
+    font-size: 1.5rem;
+}
+
+/* 10. تنسيق عناصر الإدخال (Inputs, Select, Textarea) */
+.add-review-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* مسافة بين العناصر */
+}
+
+.add-review-box input,
+.add-review-box select,
+.add-review-box textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #111; /* خلفية أغمق للإدخال */
+    color: var(--text-color, #fff);
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* تأثير عند الضغط على عنصر الإدخال (Focus) */
+.add-review-box input:focus,
+.add-review-box select:focus,
+.add-review-box textarea:focus {
+    border-color: var(--accent-color, #007bff); /* يتغير لون الإطار */
+    background: #161616;
+}
+
+/* تنسيق القائمة المنسدلة للنجوم */
+.add-review-box select {
+    appearance: none; /* إخفاء سهم المتصفح الافتراضي */
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="292.4"%20height="292.4"%20viewBox="0%200%20292.4%20292.4"><path%20fill="%23888"%20d="M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%طب يعم من عينيا، ده كود CSS هيخلي شكل القسم احترافي وجامد جداً، ومتناسق مع تصميم موقعك.
+
+حطه في ملف **`style.css`** بتاعك في الآخر خالص:
+
+```css
+/* ==========================================
+   قسم التقييمات (شكل احترافي وجامد) 🌟
+   ========================================== */
+
+/* الحاوية الرئيسية للقسم */
+.reviews {
+    padding: 6rem 5% 4rem; /* مسافات داخلية مناسبة */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* عنوان القسم */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* يظبط نفسه تلقائياً */
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+/* تنسيق كارت التقييم الواحد */
+.review-card {
+    background: rgba(255, 255, 255, 0.03); /* خلفية غامقة شفافة شيك */
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: right;
+    transition: all 0.3s ease; /* حركة ناعمة */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* تأثير عند تمرير الماوس */
+.review-card:hover {
+    transform: translateY(-5px); /* يترفع لفوق سنّة */
+    border-color: rgba(0, 123, 255, 0.3); /* لون أزرق خفيف */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* ظل ناعم */
+}
+
+/* تنسيق النجوم */
+.review-card .stars {
+    color: #ffc107; /* لون ذهبي للنجوم */
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* تنسيق نص الرأي */
+.review-card p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-style: italic; /* خط مائل للرأي */
+}
+
+/* تنسيق اسم صاحب الرأي */
+.review-card h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* تنسيق "زائر حقيقي" */
+.review-card span {
+    color: #007bff; /* لون أزرق */
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* ------------------------------------------
+   نموذج إضافة تقييم (Review Form)
+   ------------------------------------------ */
+
+/* حاوية النموذج */
+.add-review-box {
+    background: rgba(255, 255, 255, 0.04);
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.add-review-box h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* تنسيق عناصر الإدخال (Inputs) */
+.add-review-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.add-review-box input,
+.add-review-box select,
+.add-review-box textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #111; /* خلفية أغمق للإدخال */
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* تأثير عند الضغط على عنصر الإدخال */
+.add-review-box input:focus,
+.add-review-box select:focus,
+.add-review-box textarea:focus {
+    border-color: #007bff; /* يزرق */
+}
+
+/* تنسيق الزرار */
