@@ -857,4 +857,6 @@ body.light-mode footer {
     border-color: #007bff; /* يزرق */
 }
 
-/* تنسيق الزرار */
+* {
+    font-family: 'Cairo', sans-serif !important;
+}
