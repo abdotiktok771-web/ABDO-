@@ -16,9 +16,9 @@
     <!-- خط Cairo من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- ملف التنسيقات CSS مع إصدار حديث لإجبار تحديث الكاش -->
+    <!-- رابط ملف الـ CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,12 +40,20 @@
         </nav>
     </header>
 
-    <!-- القسم الرئيسي (Home) -->
+    <!-- القسم الرئيسي (Hero Section) -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>أهلاً بك، أنا <span>عبد الرحمن</span></h1>
-            <p>مطور ومهندس برمجيات صاعد، شغوف بإنشاء وتطوير مواقع وتطبيقات الويب بأحدث التقنيات.</p>
-            <a href="#projects" class="btn">عرض الأعمال</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>أهلاً بك، أنا <span>عبد الرحمن</span></h1>
+                <p>مطور ومهندس برمجيات صاعد، شغوف بإنشاء وتطوير مواقع وتطبيقات الويب بأحدث التقنيات.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn">عرض الأعمال</a>
+                    <a href="https://wa.me/201000000000" target="_blank" class="btn btn-whatsapp">واتساب 💬</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="my-photo.jpg" alt="عبد الرحمن" onerror="this.onerror=null; this.src='profile.jpg';">
+            </div>
         </div>
     </section>
 
@@ -54,27 +62,81 @@
         <h2 class="section-title">عن <span>عبد الرحمن</span></h2>
         <p>أعمل على تطوير الواجهات الأمامية وقواعد البيانات التفاعلية، وأسعى دائماً لبناء مشاريع برمجية سريعة ومتجاوبة مع كافة الأجهزة.</p>
     </section>
+    <!-- قسم المهارات (Skills) -->
+    <section id="skills" class="skills">
+        <h2 class="section-title">المهارات <span>الكودية</span></h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <span>برمجة</span>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-video"></i>
+                <span>إديت للفيديوهات</span>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-paint-brush"></i>
+                <span>تصميم ديزاينات</span>
+            </div>
+        </div>
+    </section>
 
     <!-- قسم المهارات (Skills) -->
     <section id="skills" class="skills">
         <h2 class="section-title">المهارات <span>التقنية</span></h2>
         <div class="skills-grid">
-            <div class="skill-card">HTML5</div>
-            <div class="skill-card">CSS3</div>
-            <div class="skill-card">JavaScript</div>
-            <div class="skill-card">Firebase</div>
-            <div class="skill-card">Git & GitHub</div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                <span>HTML5</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                <span>CSS3</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
+                <span>Firebase</span>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                <span>Git & GitHub</span>
+            </div>
         </div>
     </section>
 
-    <!-- قسم الأعمال (Projects) -->
+    <!-- قسم الأعمال (6 صور صافية بدون كتابة تحتها) -->
     <section id="projects" class="projects">
         <h2 class="section-title">معرض <span>الأعمال</span></h2>
         <div class="projects-grid">
+
             <div class="project-card">
-                <h3>موقع التقييمات التفاعلي</h3>
-                <p>موقع ويب يتيح للزوار إضافة تقييماتهم مباشرة مع ربط كامل بقاعدة بيانات Firebase Realtime.</p>
+                <img src="work1.png" alt="عمل 1" onerror="this.onerror=null; this.src='work1.jpg';">
             </div>
+
+            <div class="project-card">
+                <img src="work2.png" alt="عمل 2" onerror="this.onerror=null; this.src='work2.jpg';">
+            </div>
+
+            <div class="project-card">
+                <img src="work3.png" alt="عمل 3" onerror="this.onerror=null; this.src='work3.jpg';">
+            </div>
+
+            <div class="project-card">
+                <img src="work4.png" alt="عمل 4" onerror="this.onerror=null; this.src='work4.jpg';">
+            </div>
+
+            <div class="project-card">
+                <img src="work5.png" alt="عمل 5" onerror="this.onerror=null; this.src='work5.jpg';">
+            </div>
+
+            <div class="project-card">
+                <img src="work6.png" alt="عمل 6" onerror="this.onerror=null; this.src='work6.jpg';">
+            </div>
+
         </div>
     </section>
 
@@ -82,12 +144,10 @@
     <section id="reviews" class="reviews">
         <h2 class="section-title">آراء <span>العملاء والزوار</span></h2>
         
-        <!-- حاوية التقييمات المجلوبة من Firebase -->
         <div id="reviews-container" class="reviews-grid">
             <p style="text-align: center; color: #888888; grid-column: 1/-1; width: 100%;">جاري تحميل التقييمات... ⏳</p>
         </div>
 
-        <!-- نموذج إضافة تقييم جديد -->
         <div class="add-review-box">
             <h3>أضف تقييمك الحقيقي ✍️</h3>
             <form id="review-form">
@@ -108,10 +168,22 @@
         </div>
     </section>
 
-    <!-- قسم التواصل (Contact) -->
+    <!-- قسم التواصل مع أزرار الفيسبوك والواتساب -->
     <section id="contact" class="contact">
         <h2 class="section-title">تواصل <span>معي</span></h2>
-        <p>هل لديك مشروع أو استفسار؟ تواصل معي في أي وقت!</p>
+        <p>يمكنك التواصل معي مباشرة عبر المنصات التالية:</p>
+        
+        <div class="social-links">
+            <!-- استبدل الرابط برابط حسابك على الفيسبوك -->
+            <a href="https://facebook.com" target="_blank" class="social-btn facebook">
+                فيسبوك Facebook
+            </a>
+            
+            <!-- استبدل الرقم برقمك في الواتساب مع كود الدولة -->
+            <a href="https://wa.me/201000000000" target="_blank" class="social-btn whatsapp">
+                واتساب WhatsApp
+            </a>
+        </div>
     </section>
 
     <!-- الفوتر Footer -->
@@ -119,13 +191,9 @@
         <p>جميع الحقوق محفوظة &copy; 2026 - تم التطوير بواسطة عبد الرحمن 🚀</p>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- استدعاء سكريبتات Firebase (بالترتيب الصحيح) -->
-    <!-- ========================================== -->
+    <!-- سكريبتات Firebase ثم script.js -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
-    <!-- استدعاء ملف script.js الخاص بك مرّة واحدة فقط -->
-  <script src="script.js?v=99.0"></script>
+    <script src="script.js"></script>
 </body>
 </html>
