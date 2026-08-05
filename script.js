@@ -150,3 +150,43 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+// فتح وإغلاق نافذة الشات
+function toggleChat() {
+    const chatBox = document.getElementById("ai-chat-box");
+    chatBox.classList.toggle("chat-hidden");
+}
+
+// إرسال الرسالة والرد التلقائي
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const chatBody = document.getElementById("chatBody");
+    const text = input.value.trim();
+
+    if (text === "") return;
+
+    // إضافة رسالة المستخدم
+    const userDiv = document.createElement("div");
+    userDiv.className = "user-message";
+    userDiv.textContent = text;
+    chatBody.appendChild(userDiv);
+
+    input.value = "";
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // رد تلقائي ذكي من المساعد يوجهه للواتساب بتاعك
+    setTimeout(() => {
+        const botDiv = document.createElement("div");
+        botDiv.className = "bot-message";
+        botDiv.innerHTML = `منور يا غالي! لو حابب تتواصل مع عبد الرحمن مباشرة وتحجز خدمتك، تقدر تدوس على كروت الخدمات فوق وتكلمه واتساب فوراً 🚀`;
+        chatBody.appendChild(botDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }, 1000);
+}
+
+// إرسال بالضغط على زر Enter
+function checkEnter(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+}
