@@ -119,3 +119,34 @@ function escapeHtml(text) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 }
+
+// تشغيل نافذة عرض الصور الكبيرة
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.getElementsByClassName("close-modal")[0];
+
+    // جلب كل صور المعرض
+    const projectImages = document.querySelectorAll(".project-card img");
+
+    projectImages.forEach(img => {
+        img.addEventListener("click", function() {
+            modal.style.display = "block";
+            modalImg.src = this.src; // تاخد رابط الصورة اللي دوست عليها
+        });
+    });
+
+    // إغلاق النافذة عند الضغط على علامة (X)
+    if(closeBtn) {
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+    }
+
+    // إغلاق النافذة عند الضغط في أي مكان فاضي برا الصورة
+    modal.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+});
